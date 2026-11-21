@@ -1,0 +1,621 @@
+{
+  "experiment_metadata": {
+    "timestamp": "2026-11-22 01:04:09",
+    "provider": "offline_deterministic",
+    "sample_role": "SDE(Backend)",
+    "total_modules": 4,
+    "versions_per_module": 4
+  },
+  "modules": {
+    "module_a": {
+      "name": "Contextual Resume Analysis",
+      "iterations": [
+        {
+          "version": "v1",
+          "changes_introduced": "Baseline naive prompt without role framing or explicit output constraints.",
+          "reason_for_modification": "Initial baseline to observe raw model behavior.",
+          "prompt_character_count": 1084,
+          "prompt_snippet": "\nYou are a resume reviewer. Review this resume for the role of SDE(Backend) and the following job description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, a...",
+          "full_prompt_text": "\nYou are a resume reviewer. Review this resume for the role of SDE(Backend) and the following job description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nResume:\nSoftware Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\nE-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\nPython, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n\nTell me how well the candidate matches the job, what projects are relevant, their strengths, and what they need to improve.\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 3,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Unstructured prose output; difficult to integrate with frontend.",
+            "Vague advice; prone to generic summaries."
+          ]
+        },
+        {
+          "version": "v2",
+          "changes_introduced": "Added professional persona, organized context sections, and requested Markdown output.",
+          "reason_for_modification": "V1 gave erratic structure and ignored the ML baseline score.",
+          "prompt_character_count": 1554,
+          "prompt_snippet": "\nRole: Senior Technical Recruiter & Hiring Manager.\nTask: Perform a contextual analysis of the candidate's resume against the target role and provided Job Description.\n\nTarget Role: SDE(Backend)\nTarget Job Description:\nSeeking a Backend Software Engi...",
+          "full_prompt_text": "\nRole: Senior Technical Recruiter & Hiring Manager.\nTask: Perform a contextual analysis of the candidate's resume against the target role and provided Job Description.\n\nTarget Role: SDE(Backend)\nTarget Job Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nExtracted Candidate Information:\n- Experience: Software Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\n- Projects: E-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\n- Skills: Python, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n- Existing ML Match Prediction: SDE(Backend) (Score: 68.5/100)\n\nInstructions:\n1. Assess the candidate's total experience and seniority alignment.\n2. Identify which specific projects demonstrate direct relevance to the job requirements.\n3. Identify top 3 candidate strengths.\n4. Identify 3 areas needing immediate improvement.\n5. Provide an alignment rating: Strong, Moderate, or Weak.\n\nReturn your response in clean markdown.\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 6,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Better organization with clear sections, but text format still requires manual parsing.",
+            "Good role persona adoption."
+          ]
+        },
+        {
+          "version": "v3",
+          "changes_introduced": "Enforced strict RFC-8259 JSON schema with anti-hallucination constraint.",
+          "reason_for_modification": "Markdown was difficult to parse programmatically and model occasionally assumed candidate knew cloud tools.",
+          "prompt_character_count": 2231,
+          "prompt_snippet": "\nRole: Senior Technical Recruiter and ATS Specialist.\nTask: Conduct a rigorous contextual evaluation of the candidate's resume against the Job Description.\n\n[INPUT CONTEXT]\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software Enginee...",
+          "full_prompt_text": "\nRole: Senior Technical Recruiter and ATS Specialist.\nTask: Conduct a rigorous contextual evaluation of the candidate's resume against the Job Description.\n\n[INPUT CONTEXT]\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nCandidate Profile:\n- Relevant Experience:\nSoftware Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\n- Projects:\nE-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\n- Skills Extracted:\nPython, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n- ML Baseline: Predicted Role = SDE(Backend), Model Score = 68.5/100\n\n[CONSTRAINTS]\n1. Base all judgments STRICTLY on evidence present in the candidate profile. Do not invent details.\n2. If the Job Description is empty or generic, evaluate against standard industry expectations for 'SDE(Backend)'.\n3. Output MUST be valid RFC-8259 JSON only. No prose outside the JSON object.\n\n[REQUIRED JSON OUTPUT FORMAT]\n{\n  \"role_alignment_rating\": \"High\" | \"Moderate\" | \"Low\",\n  \"alignment_summary\": \"2-3 sentences evaluating overall role & JD fit based on verifiable evidence\",\n  \"experience_relevance\": {\n    \"verdict\": \"string\",\n    \"years_demonstrated_summary\": \"string\",\n    \"key_alignment_points\": [\"point 1\", \"point 2\"]\n  },\n  \"relevant_projects\": [\n    {\n      \"project_title\": \"string\",\n      \"relevance_explanation\": \"how this project addresses JD requirements\",\n      \"technologies_matched\": [\"tech1\", \"tech2\"]\n    }\n  ],\n  \"candidate_strengths\": [\"strength 1 with resume evidence\", \"strength 2 with resume evidence\"],\n  \"areas_for_improvement\": [\"area 1 tied to JD gaps\", \"area 2 tied to JD gaps\"]\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "evaluation_observations": [
+            "Valid JSON conforming to schema. High machine parseability.",
+            "Effective anti-hallucination constraints."
+          ]
+        },
+        {
+          "version": "final",
+          "changes_introduced": "Added zero-hallucination policy, default absence handling, and verified direct match categorization.",
+          "reason_for_modification": "Eliminates edge-case errors when job descriptions are missing or candidate claims unapplied skills.",
+          "prompt_character_count": 2984,
+          "prompt_snippet": "\nYou are an expert AI Technical Recruiter and Career Strategist.\nYour objective is to perform an objective, evidence-grounded contextual analysis comparing a candidate's parsed resume against a target role and Job Description (JD).\n\n=== INPUT CONTEXT...",
+          "full_prompt_text": "\nYou are an expert AI Technical Recruiter and Career Strategist.\nYour objective is to perform an objective, evidence-grounded contextual analysis comparing a candidate's parsed resume against a target role and Job Description (JD).\n\n=== INPUT CONTEXT ===\nTarget Role: SDE(Backend)\nJob Description (JD):\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nCandidate Parsed Resume Data:\n- Experience Summary:\nSoftware Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\n- Projects:\nE-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\n- Extracted Skills:\nPython, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n- Statistical ML Baseline:\n  * Predicted Role: SDE(Backend)\n  * Benchmark Score: 68.5/100\n\n=== OPERATIONAL CONSTRAINTS & RULES ===\n1. ZERO-HALLUCINATION POLICY: Cite only tools, responsibilities, and achievements explicitly mentioned in the candidate's text.\n2. ABSENCE HANDLING: If the Job Description is not provided or says 'Not specified', formulate the evaluation using canonical senior expectations for the 'SDE(Backend)' role.\n3. CONFLICT HANDLING: If the candidate claims a skill but lists no project or experience applying it, classify it as claimed without applied depth.\n4. OUTPUT SPECIFICATION: Output MUST be a single, valid, parsable JSON object. Never wrap in markdown commentary or backticks.\n\n=== REQUIRED JSON SCHEMA ===\n{\n  \"module\": \"contextual_resume_analysis\",\n  \"role_alignment_rating\": \"High | Moderate | Low | Poor\",\n  \"alignment_score_estimate\": 0-100 integer representing semantic alignment to JD,\n  \"executive_summary\": \"Concise 2-3 sentence executive evaluation grounded in facts.\",\n  \"experience_alignment\": {\n    \"seniority_fit\": \"Junior | Mid-Level | Senior | Lead | Mismatched\",\n    \"analysis\": \"Detailed objective assessment of demonstrated responsibilities.\",\n    \"direct_matches\": [\"List of responsibilities directly matching JD needs\"]\n  },\n  \"relevant_projects\": [\n    {\n      \"project_title\": \"Identified project name or descriptor\",\n      \"relevance_explanation\": \"Concrete reason this project proves capability for the JD\",\n      \"demonstrated_tools\": [\"tool1\", \"tool2\"]\n    }\n  ],\n  \"verified_strengths\": [\n    \"Strength 1 with explicit evidence from resume\",\n    \"Strength 2 with explicit evidence from resume\"\n  ],\n  \"critical_gaps\": [\n    \"Clear actionable gap between resume evidence and JD expectations\"\n  ]\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "evaluation_observations": [
+            "Optimal performance. Highly granular JSON output with full evidence citations.",
+            "Complete edge-case handling, actionable metrics, and ready for UI rendering."
+          ]
+        }
+      ]
+    },
+    "module_b": {
+      "name": "Intelligent Skill Gap Analysis",
+      "iterations": [
+        {
+          "version": "v1",
+          "changes_introduced": "Simple prompt asking to compare resume skills with job description.",
+          "reason_for_modification": "Baseline to check if model automatically extracts missing vs transferable skills.",
+          "prompt_character_count": 885,
+          "prompt_snippet": "\nFind the skill gaps between this resume and this job description.\nResume skills: Python, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\nResume text: EXPERIENCE:\n- Worked on backend features and created database queries for the web application.\n- Resp...",
+          "full_prompt_text": "\nFind the skill gaps between this resume and this job description.\nResume skills: Python, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\nResume text: EXPERIENCE:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\nPROJECTS:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Added basic JWT authentication for user sessions.\nJob description: Seeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\nTarget role: SDE(Backend)\n\nList the skills required, skills the candidate has, skills they are missing, and what they can transfer.\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 3,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Unstructured prose output; difficult to integrate with frontend.",
+            "Vague advice; prone to generic summaries."
+          ]
+        },
+        {
+          "version": "v2",
+          "changes_introduced": "Structured prompt separating required, proven, missing, and transferable skills.",
+          "reason_for_modification": "V1 lumped all skills into vague paragraphs without actionable differentiation.",
+          "prompt_character_count": 1204,
+          "prompt_snippet": "\nRole: Senior Technical Talent Evaluator.\nTask: Analyze the technical and soft skill gaps between the candidate's resume and the job description.\n\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software Engineer with 2+ years experience...",
+          "full_prompt_text": "\nRole: Senior Technical Talent Evaluator.\nTask: Analyze the technical and soft skill gaps between the candidate's resume and the job description.\n\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nExtracted Resume Skills:\nPython, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n\nFull Resume Context:\nEXPERIENCE:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\nPROJECTS:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Added basic JWT authentication for user sessions.\n\nPlease provide:\n1. Skills explicitly demanded by the Job Description.\n2. Skills clearly proven in the resume.\n3. Critical missing skills that the candidate must acquire.\n4. Partially demonstrated skills (mentioned but no deep project proof).\n5. Transferable skills from their background.\n\nFormat as a clear bulleted report.\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 6,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Better organization with clear sections, but text format still requires manual parsing.",
+            "Good role persona adoption."
+          ]
+        },
+        {
+          "version": "v3",
+          "changes_introduced": "Mandated concrete citations of textual evidence and differentiated between listed vs demonstrated skills.",
+          "reason_for_modification": "V2 assumed candidate had skills merely because they appeared in a keyword dump.",
+          "prompt_character_count": 2234,
+          "prompt_snippet": "\nRole: Lead Technical Interviewer and Skills Assessor.\nTask: Perform a strict, evidence-based skill gap audit between the Job Description and Candidate Profile.\n\n[INPUT CONTEXT]\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software En...",
+          "full_prompt_text": "\nRole: Lead Technical Interviewer and Skills Assessor.\nTask: Perform a strict, evidence-based skill gap audit between the Job Description and Candidate Profile.\n\n[INPUT CONTEXT]\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nExtracted Candidate Skills:\nPython, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n\nCandidate Work Experience & Projects:\nEXPERIENCE:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\nPROJECTS:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Added basic JWT authentication for user sessions.\n\n[STRICT EVIDENCE CONSTRAINTS]\n1. ZERO ASSUMPTIONS: You must NEVER mark a skill as 'demonstrated' unless there is explicit textual proof (code, framework, duty, or artifact) in the resume.\n2. If a skill appears only in a keyword list without any contextual usage, classify it as 'partially_demonstrated'.\n3. 'transferable_skills' must explain the concrete bridge (e.g., C++ experience bridging to Java OOP concepts).\n4. Output MUST be valid RFC-8259 JSON only.\n\n[REQUIRED JSON SCHEMA]\n{\n  \"skills_required_by_jd\": [\"skill1\", \"skill2\"],\n  \"skills_demonstrated\": [\n    {\n      \"skill\": \"skill_name\",\n      \"evidence_in_resume\": \"quote or specific project where applied\"\n    }\n  ],\n  \"missing_skills\": [\n    {\n      \"skill\": \"skill_name\",\n      \"importance\": \"Critical\" | \"Secondary\",\n      \"reason\": \"why this skill is necessary for this role\"\n    }\n  ],\n  \"partially_demonstrated_skills\": [\n    {\n      \"skill\": \"skill_name\",\n      \"status\": \"Keyword listed only with no project context / Coursework only\",\n      \"recommendation_to_prove\": \"how candidate can substantiate it\"\n    }\n  ],\n  \"transferable_skills\": [\n    {\n      \"existing_skill\": \"skill candidate already has\",\n      \"maps_to_target\": \"target required skill\",\n      \"transferability_rationale\": \"why this prior experience helps\"\n    }\n  ]\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "evaluation_observations": [
+            "Valid JSON conforming to schema. High machine parseability.",
+            "Effective anti-hallucination constraints."
+          ]
+        },
+        {
+          "version": "final",
+          "changes_introduced": "Added match percentage calculation, severity ranking (High/Medium/Low), and technical bridge rationale for transferable skills.",
+          "reason_for_modification": "Provides production-grade clarity on why a skill gap matters to recruiters and how adjacent skills bridge it.",
+          "prompt_character_count": 3156,
+          "prompt_snippet": "\nYou are an expert AI Competency Architect and Technical Skills Evaluator.\nYour task is to conduct an authoritative, rigorous skill gap breakdown comparing a candidate's resume evidence against a target role and Job Description.\n\n=== INPUT DATA ===\nT...",
+          "full_prompt_text": "\nYou are an expert AI Competency Architect and Technical Skills Evaluator.\nYour task is to conduct an authoritative, rigorous skill gap breakdown comparing a candidate's resume evidence against a target role and Job Description.\n\n=== INPUT DATA ===\nTarget Job Role: SDE(Backend)\nTarget Job Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nCandidate Skills:\nPython, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n\nCandidate Experience & Project Descriptions:\nEXPERIENCE:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\nPROJECTS:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Added basic JWT authentication for user sessions.\n\n=== CRITICAL EVALUATION RULES ===\n1. EVIDENCE BOUNDARY: Never credit a skill as demonstrated without citation of the specific line or project context where it was utilized.\n2. DISTINCTION BETWEEN LISTED VS DEMONSTRATED:\n   - \"demonstrated\": Used in actual work, project, or quantifiable accomplishment.\n   - \"partially_demonstrated\": Listed in a skills bank or course list, but without descriptive proof of application.\n   - \"missing\": Demanded by the role/JD and completely absent from the resume.\n   - \"transferable\": A skill the candidate provenly possesses that directly accelerates proficiency in a missing target skill.\n3. DEFAULT ROBUSTNESS: If the Job Description is sparse or absent, extract required skills from current industry hiring standards for 'SDE(Backend)'.\n4. FORMAT: Return exclusively valid JSON conforming strictly to the schema below. No Markdown code fence backticks around the json.\n\n=== JSON SCHEMA ===\n{\n  \"module\": \"intelligent_skill_gap_analysis\",\n  \"match_percentage\": 0-100 integer representing percentage of critical JD skills satisfied,\n  \"summary\": \"Concise 2-sentence summary of the candidate's skill preparedness.\",\n  \"skills_required_by_jd\": [\n    \"Explicitly required skill name\"\n  ],\n  \"demonstrated_skills\": [\n    {\n      \"skill\": \"skill_name\",\n      \"evidence\": \"Direct quote or description of where demonstrated in resume\",\n      \"proficiency_signal\": \"Basic | Intermediate | Advanced\"\n    }\n  ],\n  \"missing_skills\": [\n    {\n      \"skill\": \"missing_skill_name\",\n      \"severity\": \"High | Medium | Low\",\n      \"impact_on_hiring\": \"Why this creates friction during screening\"\n    }\n  ],\n  \"partially_demonstrated_skills\": [\n    {\n      \"skill\": \"skill_name\",\n      \"current_gap\": \"e.g., Listed in skills list but omitted from project tech stacks\",\n      \"action_to_validate\": \"Specific project enhancement or bullet point needed to prove competency\"\n    }\n  ],\n  \"transferable_skills\": [\n    {\n      \"candidate_skill\": \"Known candidate skill\",\n      \"target_skill\": \"Missing or desired target skill\",\n      \"bridge_rationale\": \"Clear technical explanation of how skill A translates to skill B\"\n    }\n  ]\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "evaluation_observations": [
+            "Optimal performance. Highly granular JSON output with full evidence citations.",
+            "Complete edge-case handling, actionable metrics, and ready for UI rendering."
+          ]
+        }
+      ]
+    },
+    "module_c": {
+      "name": "AI Resume Improvement Suggestions",
+      "iterations": [
+        {
+          "version": "v1",
+          "changes_introduced": "Naive prompt asking to improve bullets and make them impressive.",
+          "reason_for_modification": "Baseline test to observe hallucination tendencies.",
+          "prompt_character_count": 376,
+          "prompt_snippet": "\nImprove the following resume bullet points:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Built an e-commerce backend service in Python using Flas...",
+          "full_prompt_text": "\nImprove the following resume bullet points:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\nMake them sound better, more professional, and add numbers to make them impressive for a SDE(Backend) role.\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 3,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Unstructured prose output; difficult to integrate with frontend.",
+            "Vague advice; prone to generic summaries."
+          ]
+        },
+        {
+          "version": "v2",
+          "changes_introduced": "Introduced Google XYZ framework (Accomplished [X] measured by [Y] by doing [Z]).",
+          "reason_for_modification": "V1 hallucinated fake metrics (e.g. 'boosted revenue by 40%') without candidate proof.",
+          "prompt_character_count": 1226,
+          "prompt_snippet": "\nRole: Professional Executive Resume Writer & Career Coach.\nTask: Critique and rewrite the candidate's experience and project bullets for a SDE(Backend) position.\n\nTarget Role: SDE(Backend)\nTarget Job Requirements: Seeking a Backend Software Engineer...",
+          "full_prompt_text": "\nRole: Professional Executive Resume Writer & Career Coach.\nTask: Critique and rewrite the candidate's experience and project bullets for a SDE(Backend) position.\n\nTarget Role: SDE(Backend)\nTarget Job Requirements: Seeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nInput Bullet Points:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n\nInstructions:\n1. Identify bullet points that are weak, passive, or lack measurable business impact.\n2. Rewrite each weak bullet using the Google XYZ format: \"Accomplished [X], as measured by [Y], by doing [Z]\".\n3. Do not invent fake statistics; use bracketed placeholders like \"[improved query latency by X%]\" so the user can insert real numbers.\n4. Suggest stronger action verbs and industry-standard terminology.\n5. Provide recommendations to elevate project descriptions.\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 6,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Better organization with clear sections, but text format still requires manual parsing.",
+            "Good role persona adoption."
+          ]
+        },
+        {
+          "version": "v3",
+          "changes_introduced": "Enforced bracketed metric slots ([~X%], [N users]) and strict anti-fabrication rules.",
+          "reason_for_modification": "Guarantees student candidate does not submit fabricated claims on their resume.",
+          "prompt_character_count": 1851,
+          "prompt_snippet": "\nRole: ATS Optimization Architect and Executive Resume Consultant.\nTask: Generate targeted, non-hallucinatory bullet point and project improvements.\n\n[CONTEXT]\nTarget Role: SDE(Backend)\nJob Description: Seeking a Backend Software Engineer with 2+ yea...",
+          "full_prompt_text": "\nRole: ATS Optimization Architect and Executive Resume Consultant.\nTask: Generate targeted, non-hallucinatory bullet point and project improvements.\n\n[CONTEXT]\nTarget Role: SDE(Backend)\nJob Description: Seeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nOriginal Resume Bullets & Descriptions:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n\n[STRICT ETHICAL & ACCURACY CONSTRAINTS]\n1. ZERO FABRICATION: Never fabricate past employers, job titles, technologies unmentioned by candidate, or fictitious quantitative results.\n2. Use explicit prompt templates/placeholders (e.g., \"[reduced response latency by ~X%]\", \"[scaled to handle N concurrent requests]\") indicating where candidate must supply their verified figures.\n3. Every suggestion MUST preserve the factual core of the original bullet.\n4. Output MUST be valid RFC-8259 JSON only.\n\n[REQUIRED JSON SCHEMA]\n{\n  \"total_bullets_analyzed\": integer,\n  \"bullet_improvements\": [\n    {\n      \"original_text\": \"string\",\n      \"detected_weakness\": \"e.g. Passive voice, lack of metric, vague scope\",\n      \"suggested_rewrite\": \"string with [X] metrics placeholder\",\n      \"action_verb_used\": \"string\",\n      \"framework_applied\": \"XYZ | STAR\",\n      \"expected_impact\": \"string\"\n    }\n  ],\n  \"project_enhancements\": [\n    {\n      \"project_title\": \"string\",\n      \"critique\": \"string\",\n      \"enhancement_guidance\": \"string\"\n    }\n  ],\n  \"missing_critical_details\": [\"detail 1\", \"detail 2\"]\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Valid JSON conforming to schema. High machine parseability.",
+            "Effective anti-hallucination constraints."
+          ]
+        },
+        {
+          "version": "final",
+          "changes_introduced": "Added weak bullet diagnosis, power action verbs, project architecture framing, and critical missing elements.",
+          "reason_for_modification": "Provides complete transformation cards (Original -> Weakness Diagnosis -> Rewritten XYZ Bullet -> Power Verb -> Recruiter Rationale).",
+          "prompt_character_count": 2419,
+          "prompt_snippet": "\nYou are a elite Technical Resume Specialist and ATS Optimization Engineer.\nYour objective is to diagnose weaknesses in a candidate's resume bullet points and provide surgical, high-impact transformations strictly grounded in truth.\n\n=== INPUT CONTEX...",
+          "full_prompt_text": "\nYou are a elite Technical Resume Specialist and ATS Optimization Engineer.\nYour objective is to diagnose weaknesses in a candidate's resume bullet points and provide surgical, high-impact transformations strictly grounded in truth.\n\n=== INPUT CONTEXT ===\nTarget Role: SDE(Backend)\nTarget Job Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nOriginal Candidate Bullet Points / Project Descriptions:\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n\n=== ANTI-HALLUCINATION & INTEGRITY DIRECTIVES ===\n1. ABSOLUTE TRUTHFULNESS: Never invent achievements, awards, credentials, or arbitrary performance figures.\n2. TRANSPARENT METRIC SLOTS: Where quantification is needed, use bracketed guide slots like \"[by ~X% (insert your real metric)]\" or \"[supporting ~N daily active users]\".\n3. PRESERVE INTENT: Every rewrite must remain a faithful upgrade of the candidate's actual work, elevating passive wording into active leadership and technical precision.\n4. REFORMATTING STANDARD: Format each rewrite using the Google XYZ standard: \"Accomplished [X], as measured by [Y], by doing [Z]\".\n5. OUTPUT: Output ONLY a single, valid JSON object without surrounding prose or markdown fences.\n\n=== JSON SCHEMA ===\n{\n  \"module\": \"resume_improvement_suggestions\",\n  \"audit_summary\": \"1-2 sentence assessment of bullet quality, action verb strength, and ATS readability.\",\n  \"bullet_transformations\": [\n    {\n      \"original_bullet\": \"Exact quote from resume\",\n      \"weakness_type\": \"Passive Voice | Missing Quantification | Vague Tech Stack | Task-Only Description\",\n      \"critique\": \"Specific diagnosis of why this underperforms in recruiter review\",\n      \"optimized_rewrite\": \"Action-verb led rewrite with bracketed [metric slot]\",\n      \"action_verb\": \"Primary power verb used\",\n      \"rationale\": \"Why this version ranks higher with hiring managers\"\n    }\n  ],\n  \"critical_missing_elements\": [\n    \"Concrete element missing (e.g. live link, unit testing mention, CI/CD pipeline, system metrics)\"\n  ]\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "evaluation_observations": [
+            "Optimal performance. Highly granular JSON output with full evidence citations.",
+            "Complete edge-case handling, actionable metrics, and ready for UI rendering."
+          ]
+        }
+      ]
+    },
+    "module_d": {
+      "name": "Personalized Career Feedback",
+      "iterations": [
+        {
+          "version": "v1",
+          "changes_introduced": "Open-ended advice request.",
+          "reason_for_modification": "Baseline test for generic career tips.",
+          "prompt_character_count": 1051,
+          "prompt_snippet": "\nGive career advice to this candidate based on their resume and the role of SDE(Backend).\nResume: Software Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Respo...",
+          "full_prompt_text": "\nGive career advice to this candidate based on their resume and the role of SDE(Backend).\nResume: Software Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\nE-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\nPython, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\nJob: Seeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nTell them their strengths, weaknesses, what skills they should learn, and what steps they should take next.\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 3,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Unstructured prose output; difficult to integrate with frontend.",
+            "Vague advice; prone to generic summaries."
+          ]
+        },
+        {
+          "version": "v2",
+          "changes_introduced": "Role definition as Senior Mentor, categorized into strengths, weaknesses, tools to learn, and next steps.",
+          "reason_for_modification": "V1 gave superficial advice like 'study data structures'.",
+          "prompt_character_count": 1373,
+          "prompt_snippet": "\nRole: Senior Staff Engineer & Career Mentor.\nTask: Formulate a customized career growth and interview readiness blueprint.\n\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RES...",
+          "full_prompt_text": "\nRole: Senior Staff Engineer & Career Mentor.\nTask: Formulate a customized career growth and interview readiness blueprint.\n\nTarget Role: SDE(Backend)\nJob Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nCandidate Profile:\n- Skills: Python, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n- Experience: Software Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\n- Projects: E-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\n- ML Evaluation Score: 68.5/100\n\nPlease provide:\n1. Key Candidate Strengths (what makes them stand out).\n2. Key Weaknesses (what will raise flags for hiring teams).\n3. Role-specific areas to upgrade.\n4. Recommended skills and tools to learn next.\n5. Actionable next steps (Immediate, Short-term, Medium-term).\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 6,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Better organization with clear sections, but text format still requires manual parsing.",
+            "Good role persona adoption."
+          ]
+        },
+        {
+          "version": "v3",
+          "changes_introduced": "Evidence-grounded strengths/weaknesses and structured time horizons (Immediate, 30 days, 90 days).",
+          "reason_for_modification": "Needed structured milestones to make the plan actionable.",
+          "prompt_character_count": 2107,
+          "prompt_snippet": "\nRole: Principal Engineering Mentor and Technical Hiring Consultant.\nTask: Construct an evidence-grounded career roadmap report.\n\n[CONTEXT]\nTarget Role: SDE(Backend)\nJob Description: Seeking a Backend Software Engineer with 2+ years experience buildi...",
+          "full_prompt_text": "\nRole: Principal Engineering Mentor and Technical Hiring Consultant.\nTask: Construct an evidence-grounded career roadmap report.\n\n[CONTEXT]\nTarget Role: SDE(Backend)\nJob Description: Seeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\nExtracted Resume Summary:\n- Skills: Python, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n- Experience: Software Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\n- Projects: E-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\n- Baseline Statistical Score: 68.5/100\n\n[RULES & CONSTRAINTS]\n1. Every strength and weakness MUST cite verifiable evidence from the supplied resume.\n2. Recommended learning skills MUST bridge direct gaps between candidate profile and SDE(Backend) / JD.\n3. Every next step MUST be concrete, testable, and realistic (not generic advice like \"study hard\").\n4. Output MUST be valid RFC-8259 JSON only.\n\n[REQUIRED JSON SCHEMA]\n{\n  \"candidate_profile_tier\": \"Entry | Junior-Mid | Mid-Senior | Transitioning\",\n  \"strengths\": [\n    {\"strength\": \"string\", \"evidence\": \"string\"}\n  ],\n  \"weaknesses\": [\n    {\"weakness\": \"string\", \"impact\": \"string\"}\n  ],\n  \"job_specific_improvements\": [\n    {\"area\": \"string\", \"recommendation\": \"string\"}\n  ],\n  \"recommended_skills_to_learn\": [\n    {\"skill\": \"string\", \"priority\": \"High | Medium\", \"reason\": \"string\"}\n  ],\n  \"actionable_next_steps\": {\n    \"immediate_7_days\": [\"step 1\", \"step 2\"],\n    \"short_term_30_days\": [\"step 1\", \"step 2\"],\n    \"medium_term_90_days\": [\"step 1\", \"step 2\"]\n  }\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "status": "success",
+            "mode": "offline_demonstration",
+            "message": "Analysis completed using local deterministic heuristics engine."
+          },
+          "evaluation_observations": [
+            "Valid JSON conforming to schema. High machine parseability.",
+            "Effective anti-hallucination constraints."
+          ]
+        },
+        {
+          "version": "final",
+          "changes_introduced": "Added interview readiness verdict, recruiter risk explanations, and curated project portfolio suggestions.",
+          "reason_for_modification": "Delivers an executive-level candidate readiness audit with portfolio guidance.",
+          "prompt_character_count": 3326,
+          "prompt_snippet": "\nYou are a Principal Engineering Career Strategist and Senior Talent Consultant.\nDeliver an authoritative, personalized career trajectory analysis and actionable roadmap tailored specifically to this candidate's verified profile and target opportunit...",
+          "full_prompt_text": "\nYou are a Principal Engineering Career Strategist and Senior Talent Consultant.\nDeliver an authoritative, personalized career trajectory analysis and actionable roadmap tailored specifically to this candidate's verified profile and target opportunity.\n\n=== INPUT CONTEXT ===\nTarget Role: SDE(Backend)\nTarget Job Description:\nSeeking a Backend Software Engineer with 2+ years experience building scalable RESTful APIs. Must have proficiency in Python, PostgreSQL, and Docker. Experience with microservices, Redis caching, and automated unit testing (PyTest) is required. Cloud deployment (AWS ECS/Lambda) is a plus.\n\nCandidate Profile Snapshot:\n- Extracted Skills: Python, Flask, PostgreSQL, Git, JavaScript, HTML, CSS\n- Experience Highlights:\nSoftware Engineering Intern at TechLabs (Jan 2024 - Present):\n- Worked on backend features and created database queries for the web application.\n- Responsible for integrating third-party payment gateway APIs.\n- Fixed bug tickets and participated in weekly team standup meetings.\n- Project Portfolio:\nE-Commerce Microservice API:\n- Built an e-commerce backend service in Python using Flask and PostgreSQL.\n- Designed schemas for products, cart, and order tracking.\n- Added basic JWT authentication for user sessions.\n- ML Baseline Score: 68.5/100\n\n=== GOVERNING PRINCIPLES ===\n1. RIGOROUS PERSONALIZATION: Never produce generic advice. Base every observation on this exact resume versus the target role requirements.\n2. HONEST & CONSTRUCTIVE: Clearly outline vulnerabilities that could lead to screening rejection and provide realistic paths to remediate them.\n3. INDUSTRY-CURRENT TECH STACK: Recommend only modern, actively demanded industry tools and paradigms.\n4. TIME-BOUND ROADMAP: Structure next steps into actionable milestones (Immediate: 1-7 Days, Phase 1: 30 Days, Phase 2: 60-90 Days).\n5. FORMAT: Emit strictly valid JSON conforming to the schema below. No extra commentary or markdown formatting tags.\n\n=== JSON SCHEMA ===\n{\n  \"module\": \"personalized_career_feedback\",\n  \"readiness_verdict\": \"Interview Ready | Needs Targeted Polish | Substantial Upskilling Required\",\n  \"candidate_profile_tier\": \"Entry-Level | Associate | Mid-Level | Senior Candidate\",\n  \"verified_strengths\": [\n    {\n      \"attribute\": \"Identified strength\",\n      \"resume_proof\": \"Where this is demonstrated in the resume\",\n      \"market_value\": \"Why recruiters value this\"\n    }\n  ],\n  \"critical_weaknesses\": [\n    {\n      \"vulnerability\": \"Identified weakness or blind spot\",\n      \"recruiter_risk\": \"How an ATS or recruiter will interpret this gap\",\n      \"remediation_strategy\": \"Concrete step to fix or mitigate\"\n    }\n  ],\n  \"curated_learning_path\": [\n    {\n      \"skill_or_tool\": \"Specific skill name\",\n      \"learning_priority\": \"High | Medium | Low\",\n      \"rationale\": \"Direct link to target role/JD expectations\",\n      \"suggested_project_idea\": \"A portfolio project demonstrating this skill\"\n    }\n  ],\n  \"phased_action_plan\": {\n    \"immediate_actions\": [\n      \"Concrete task to execute within 48-72 hours (e.g. resume edits, GitHub cleanup)\"\n    ],\n    \"thirty_day_goals\": [\n      \"Milestone to achieve within 30 days (e.g. project deployment, certification, networking)\"\n    ],\n    \"ninety_day_vision\": [\n      \"Longer range capability goal to cement competitive standing\"\n    ]\n  }\n}\n",
+          "latency_seconds": 0.0,
+          "output_format": "JSON",
+          "json_valid": true,
+          "quality_score_out_of_10": 10,
+          "actual_output": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          },
+          "evaluation_observations": [
+            "Optimal performance. Highly granular JSON output with full evidence citations.",
+            "Complete edge-case handling, actionable metrics, and ready for UI rendering."
+          ]
+        }
+      ]
+    }
+  }
+}

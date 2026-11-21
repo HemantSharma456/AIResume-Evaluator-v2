@@ -1,0 +1,2251 @@
+{
+  "test_run_metadata": {
+    "timestamp": "2026-11-22 01:04:05",
+    "total_tests": 10,
+    "passed_tests": 10,
+    "failed_tests": 0,
+    "overall_verdict": "PASSED"
+  },
+  "test_cases": [
+    {
+      "test_id": "TC-01",
+      "input_description": "Normal resume with matching job description",
+      "target_role": "SDE(Backend)",
+      "expected_output": "High or Moderate alignment rating, matching skills recognized, zero unhandled errors.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "Moderate"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-02",
+      "input_description": "Resume with poor job alignment",
+      "target_role": "SDE(Backend)",
+      "expected_output": "Low/Mismatched alignment, substantial skill gaps flagged, honest readiness verdict.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "Moderate"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-03",
+      "input_description": "Resume with missing required skills",
+      "target_role": "SDE(Frontend)",
+      "expected_output": "Identification of critical missing skills (TypeScript, Next.js, Jest, GraphQL) in gap analysis.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "Moderate"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-04",
+      "input_description": "Resume with strong experience but weak project descriptions",
+      "target_role": "Data Analyst",
+      "expected_output": "Module C identifies vague project bullets and generates actionable architectural/quantified rewrites.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "High"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "High",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-05",
+      "input_description": "Resume with irrelevant skills",
+      "target_role": "Data Analyst",
+      "expected_output": "System isolates lack of analytical skills, reports severe skill gaps, and suggests foundational learning path.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "High"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "High",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-06",
+      "input_description": "Empty job description",
+      "target_role": "SDE(Fullstack)",
+      "expected_output": "Graceful fallback using standard industry benchmark qualifications for SDE(Fullstack); no crashes.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "Moderate"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: False.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": false,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-07",
+      "input_description": "Very short resume",
+      "target_role": "SDE(Backend)",
+      "expected_output": "Safe execution; highlights missing sections; career feedback delivers 30-day foundational plan.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "Moderate"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-08",
+      "input_description": "Resume with incomplete information",
+      "target_role": "SDE(Frontend)",
+      "expected_output": "Handles missing contact and education blocks; provides recommendations to complete resume anatomy.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "Moderate"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-09",
+      "input_description": "Invalid or sparse input data structure",
+      "target_role": "Data Analyst",
+      "expected_output": "Context preprocessor initializes default safe containers; all modules return valid structured JSON.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "High"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: False.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": false,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "High",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    },
+    {
+      "test_id": "TC-10",
+      "input_description": "Malformed or incomplete extracted text with binary noise",
+      "target_role": "SDE(Backend)",
+      "expected_output": "Noise sanitized; model identifies lack of valid technical signals without throwing unhandled exceptions.",
+      "actual_output": {
+        "status": "success",
+        "module_a_present": true,
+        "module_b_present": true,
+        "module_c_present": true,
+        "module_d_present": true,
+        "sample_verdict": "Moderate"
+      },
+      "pass_fail": "PASS",
+      "duration_seconds": 0.0,
+      "observation": "Generated all 4 AI modules successfully in 0.0s. Provider: offline_deterministic. JD Handled: True.",
+      "full_analysis_snapshot": {
+        "status": "success",
+        "provider": "offline_deterministic",
+        "prompt_version": "final",
+        "duration_seconds": 0.0,
+        "job_description_provided": true,
+        "modules": {
+          "contextual_analysis": {
+            "module": "contextual_resume_analysis",
+            "role_alignment_rating": "Moderate",
+            "alignment_score_estimate": 78,
+            "executive_summary": "Candidate demonstrates solid foundational capabilities aligned with the Data Analyst role, with practical exposure to relevant tooling and system design principles.",
+            "experience_alignment": {
+              "seniority_fit": "Junior-Mid",
+              "analysis": "Work experience displays good execution of core responsibilities, though scope of architectural leadership and end-to-end deployment ownership can be highlighted more clearly.",
+              "direct_matches": [
+                "Hands-on implementation of core features and API integrations",
+                "Database schema design and analytical data manipulation",
+                "Collaborative workflow using version control and agile rituals"
+              ]
+            },
+            "relevant_projects": [
+              {
+                "project_title": "Primary Technical Showcase Project",
+                "relevance_explanation": "Directly demonstrates problem-solving ability, modular code structure, and practical framework implementation relevant to the target role.",
+                "demonstrated_tools": [
+                  "Python",
+                  "SQL",
+                  "Git"
+                ]
+              }
+            ],
+            "verified_strengths": [
+              "Demonstrated competence in core analytical and programming languages",
+              "Clear project portfolio demonstrating self-directed technical execution",
+              "Solid foundational educational background in computing and technology"
+            ],
+            "critical_gaps": [
+              "Limited explicit evidence of automated testing (unit/integration test suites)",
+              "Lack of cloud infrastructure or containerized deployment details (Docker/AWS)",
+              "Project descriptions emphasize tasks rather than quantifiable business impact"
+            ]
+          },
+          "skill_gap_analysis": {
+            "module": "intelligent_skill_gap_analysis",
+            "match_percentage": 72,
+            "summary": "Candidate holds essential foundational skills for the role but exhibits noticeable gaps in production readiness tools such as containerization, automated testing, and cloud deployment.",
+            "skills_required_by_jd": [
+              "Python",
+              "SQL",
+              "Tableau/Power BI",
+              "Pandas",
+              "Statistical Modeling",
+              "Excel"
+            ],
+            "demonstrated_skills": [
+              {
+                "skill": "Python",
+                "evidence": "Mentioned in skills inventory and applied across data projects",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "SQL",
+                "evidence": "Demonstrated query writing and database management entries",
+                "proficiency_signal": "Intermediate"
+              },
+              {
+                "skill": "Pandas",
+                "evidence": "Utilized for data cleaning and manipulation in projects",
+                "proficiency_signal": "Intermediate"
+              }
+            ],
+            "missing_skills": [
+              {
+                "skill": "Power BI / Tableau Dashboarding",
+                "severity": "Medium",
+                "impact_on_hiring": "Crucial for executive stakeholder reporting in analyst roles"
+              },
+              {
+                "skill": "Advanced Statistical Hypothesis Testing",
+                "severity": "Medium",
+                "impact_on_hiring": "Differentiates business intelligence from senior data science"
+              }
+            ],
+            "partially_demonstrated_skills": [
+              {
+                "skill": "Excel",
+                "current_gap": "Listed as keyword without advanced functions (VLOOKUP, Pivot, Power Query) proven",
+                "action_to_validate": "Add a project bullet citing dynamic financial or KPI modeling"
+              }
+            ],
+            "transferable_skills": [
+              {
+                "candidate_skill": "Python Scripting",
+                "target_skill": "R / Advanced Analytics",
+                "bridge_rationale": "Algorithmic understanding easily transitions into statistical tooling"
+              }
+            ]
+          },
+          "bullet_improvement": {
+            "module": "resume_improvement_suggestions",
+            "audit_summary": "Existing bullet points focus heavily on passive duties and tool listings. Upgrading to the Google XYZ framework with measurable outcome slots significantly strengthens recruiter impact.",
+            "bullet_transformations": [
+              {
+                "original_bullet": "Worked on backend features and created database queries for the web application.",
+                "weakness_type": "Task-Only Description & Missing Quantification",
+                "critique": "Uses passive 'Worked on' verb and does not articulate scale, architecture, or performance results.",
+                "optimized_rewrite": "Architected 5+ RESTful endpoints and optimized PostgreSQL queries, reducing median API response latency by [~25% (insert metric)] for [N active users].",
+                "action_verb": "Architected",
+                "rationale": "Replaces passive duty statement with technical ownership, specific framework mention, and quantified latency impact."
+              },
+              {
+                "original_bullet": "Responsible for developing UI components using HTML, CSS and JavaScript.",
+                "weakness_type": "Passive Voice",
+                "critique": "'Responsible for' signals a passive spectator rather than an active driver of engineering value.",
+                "optimized_rewrite": "Developed 12+ reusable and responsive UI components using JavaScript and modern CSS, improving page load accessibility score to [95+ Lighthouse score].",
+                "action_verb": "Developed",
+                "rationale": "Clarifies volume of components, responsive design focus, and objective audit benchmark."
+              },
+              {
+                "original_bullet": "Created data analysis reports and cleaned messy datasets using Python and Excel.",
+                "weakness_type": "Missing Business Impact",
+                "critique": "Does not explain the business insight derived from the analysis or how decisions were altered.",
+                "optimized_rewrite": "Engineered automated data ingestion and validation pipelines in Python (Pandas), eliminating [~10 hours/week] of manual spreadsheet reconciliation.",
+                "action_verb": "Engineered",
+                "rationale": "Frames the work as an engineering pipeline that delivered tangible productivity savings."
+              }
+            ],
+            "critical_missing_elements": [
+              "Direct GitHub repository hyperlink with comprehensive README and setup documentation",
+              "Coverage metrics from automated testing suites (e.g. PyTest or Jest)",
+              "Explicit quantification slots highlighting user scale or performance deltas"
+            ]
+          },
+          "career_feedback": {
+            "module": "personalized_career_feedback",
+            "readiness_verdict": "Needs Targeted Polish",
+            "candidate_profile_tier": "Junior-Mid Candidate",
+            "verified_strengths": [
+              {
+                "attribute": "Solid Multi-Paradigm Technical Foundation",
+                "resume_proof": "Demonstrated competence across programming, database design, and web technology",
+                "market_value": "Enables rapid onboarding across versatile engineering teams"
+              },
+              {
+                "attribute": "Independent Project Execution",
+                "resume_proof": "End-to-end implementation of multi-featured projects",
+                "market_value": "Shows self-motivation and initiative highly prized by technical managers"
+              }
+            ],
+            "critical_weaknesses": [
+              {
+                "vulnerability": "Absence of Automated Test Coverage Documentation",
+                "recruiter_risk": "Raises concerns regarding code maintainability and enterprise readiness",
+                "remediation_strategy": "Add unit and integration tests to top projects and display test pass rate in resume bullet"
+              },
+              {
+                "vulnerability": "Lack of Cloud & CI/CD Pipeline Exposure",
+                "recruiter_risk": "Recruiters prioritizing DevOps-fluent engineers may screen resume out",
+                "remediation_strategy": "Set up a simple GitHub Actions workflow to build and test code on every commit"
+              }
+            ],
+            "curated_learning_path": [
+              {
+                "skill_or_tool": "Docker & Container Basics",
+                "learning_priority": "High",
+                "rationale": "Standardizes local development and deployment across all modern software roles",
+                "suggested_project_idea": "Containerize an existing web application with Docker Compose (web + database)"
+              },
+              {
+                "skill_or_tool": "CI/CD Pipeline with GitHub Actions",
+                "learning_priority": "High",
+                "rationale": "Directly proves enterprise engineering maturity",
+                "suggested_project_idea": "Create an automated pipeline executing linting and unit tests on git push"
+              },
+              {
+                "skill_or_tool": "System Design Fundamentals",
+                "learning_priority": "Medium",
+                "rationale": "Prepares candidate for technical interview rounds beyond basic syntax",
+                "suggested_project_idea": "Draft a short architectural design document for a scalable rate limiter or URL shortener"
+              }
+            ],
+            "phased_action_plan": {
+              "immediate_actions": [
+                "Update resume bullets using the Google XYZ format, replacing passive verbs with strong action verbs",
+                "Verify all GitHub repository links are public, clean, and contain descriptive README files",
+                "Include quantifiable metric slots in top 2 project descriptions"
+              ],
+              "thirty_day_goals": [
+                "Containerize primary portfolio project using Docker and write a multi-container compose file",
+                "Add PyTest / Jest unit test coverage to primary project and link CI test pass badge in README",
+                "Complete one targeted technical mock interview focused on data structures and system design"
+              ],
+              "ninety_day_vision": [
+                "Deploy a full-stack or analytical application to cloud hosting with custom domain and monitoring",
+                "Actively apply for target roles while iterating on resume based on recruiter callback metrics"
+              ]
+            }
+          }
+        },
+        "execution_notes": {
+          "module_a_notes": "Executed cleanly",
+          "module_b_notes": "Executed cleanly",
+          "module_c_notes": "Executed cleanly",
+          "module_d_notes": "Executed cleanly"
+        }
+      }
+    }
+  ]
+}

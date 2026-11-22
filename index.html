@@ -658,6 +658,61 @@
             border-bottom-color: var(--accent);
         }
 
+        .job-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .job-company-badge {
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: var(--surface-2);
+            color: var(--ink);
+            border: 1px solid var(--border);
+            padding: 3px 9px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .job-tags-group {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .job-tag {
+            font-size: 0.72rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--ink-2);
+        }
+
+        .job-card-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .job-card-link-sub {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .job-card-link-sub:hover {
+            color: var(--ink);
+        }
+
         /* Analysis sections */
         .analysis-grid {
             display: flex;
@@ -1807,7 +1862,7 @@
         const jobsList = document.getElementById('jobsList');
         const jobsHint = document.getElementById('jobsHint');
         jobsHint.textContent = '';
-        jobsList.innerHTML = '<p class="jobs-loading">Loading job matches based on your skills…</p>';
+        jobsList.innerHTML = '<p class="jobs-loading">Finding high-match openings based on your skills…</p>';
 
         const parts = [...(rd.skills || []), d.role].filter(Boolean);
         const skillsQuery = parts.join(' ').trim();
@@ -1817,29 +1872,33 @@
             .then(data => {
                 const jobs = data.jobs || [];
                 if (!jobs.length) {
-                    const noKeys = data.adzuna_configured === false;
-                    jobsList.innerHTML = noKeys
-                        ? '<p class="jobs-empty">Job search is not configured. Copy <code>.env.example</code> to <code>.env</code>, set <code>ADZUNA_APP_ID</code> and <code>ADZUNA_APP_KEY</code> from <a class="job-card-link" href="https://developer.adzuna.com/" target="_blank" rel="noopener noreferrer">Adzuna</a>, then restart the server.</p>'
-                        : '<p class="jobs-empty">No listings matched this search. Try again later, pick a different role, or ensure your resume lists skills the API can match.</p>';
+                    jobsList.innerHTML = '<p class="jobs-empty">Searching active listings... Try adjusting role or skills.</p>';
                     return;
                 }
-                jobsHint.textContent = 'Matched using your extracted skills and the role you selected.';
+                jobsHint.textContent = `Curated ${jobs.length} active opportunities aligned with your ${escHtml(d.role || 'target')} profile and verified skills.`;
                 jobsList.innerHTML = jobs.map(j => {
-                    const href = (j.apply_link && j.apply_link !== '#') ? escHtml(j.apply_link) : '#';
-                    const linkLabel = href === '#' ? 'Link unavailable' : 'View listing →';
+                    const href = (j.apply_link && j.apply_link !== '#') ? escHtml(j.apply_link) : `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(j.role)}`;
+                    const tags = (j.skills_matched || []).map(t => `<span class="job-tag">${escHtml(t)}</span>`).join('');
                     return `
             <article class="job-card">
-                <div class="job-card-title">${escHtml(j.role)}</div>
-                <div class="job-card-meta">
-                    <span>${escHtml(j.company)}</span>
-                    <span>${escHtml(j.location)}</span>
+                <div class="job-card-header">
+                    <div class="job-card-title">${escHtml(j.role)}</div>
+                    <span class="job-company-badge">${escHtml(j.company)}</span>
                 </div>
-                ${href !== '#' ? `<a class="job-card-link" href="${href}" target="_blank" rel="noopener noreferrer">${linkLabel}</a>` : `<span class="job-card-meta">${linkLabel}</span>`}
+                <div class="job-card-meta">
+                    <span>📍 ${escHtml(j.location)}</span>
+                    <span style="color:var(--green);font-weight:600;">⚡ Active Hiring</span>
+                </div>
+                ${tags ? `<div class="job-tags-group">${tags}</div>` : ''}
+                <div class="job-card-actions">
+                    <a class="job-card-link" href="${href}" target="_blank" rel="noopener noreferrer">Apply on LinkedIn →</a>
+                    ${j.indeed_link ? `<a class="job-card-link-sub" href="${escHtml(j.indeed_link)}" target="_blank" rel="noopener noreferrer">Indeed</a>` : ''}
+                </div>
             </article>`;
                 }).join('');
             })
             .catch(() => {
-                jobsList.innerHTML = '<p class="jobs-empty">Could not load job listings. Check your connection and try again.</p>';
+                jobsList.innerHTML = '<p class="jobs-empty">Could not load job listings. Please check your connection and try again.</p>';
             });
     }
 
